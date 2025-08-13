@@ -54,7 +54,7 @@ export default function SignIn() {
                 Forgot password?
               </NavLink>
               <NavLink
-                to="/welcome/signUp"
+                to="/signUp"
                 className="text-[#1E97E1] hover:scale-105 duration-300"
               >
                 Sign up to Twitter
