@@ -2,15 +2,17 @@ import { Navigate, NavLink, useNavigate } from "react-router";
 import logo from "../../assets/logo.png";
 import { FcGoogle } from "react-icons/fc";
 import SignUp from "../SignUp/SignUp";
+import PageTransition from "../pagetransition/PageTransition";
 
 export default function Welcome() {
   const navigate = useNavigate()
   const signUpHandle = () => {
-    navigate("/signUp")
+    navigate("/welcome/signUp")
   }
   return (
     <>
-      <div>
+      <PageTransition>
+        <div>
         <div>
           <img className="w-[250px] mb-14" src={logo} alt="#logo" />
           <h1 className="font-Roboto font-black text-[64px]">
@@ -21,7 +23,7 @@ export default function Welcome() {
           </p>
         </div>
         <div className="flex flex-col items-start gap-y-4 mt-8">
-          <div className="flex items-center w-[400px] gap-x-2 border-[1px] border-[#E4EAED] px-12 py-2 rounded-full hover:scale-105 duration-300 cursor-pointer justify-center">
+          <div className="flex items-center w-[400px] gap-x-2 border-[1px] border-[#E4EAED] hover:border-[#193e5b] px-12 py-2 rounded-full hover:scale-105 duration-300 cursor-pointer justify-center">
             <FcGoogle size={20} />
             <span className="font-Roboto font-medium text-[20px]">
               Sign up with Google
@@ -30,7 +32,7 @@ export default function Welcome() {
 
           <div
           onClick={signUpHandle}
-          className="flex items-center w-[400px] gap-x-2 border-[1px] border-[#E4EAED] px-12 py-2 rounded-full hover:scale-105 duration-300 cursor-pointer justify-center">
+          className="flex items-center w-[400px] gap-x-2 border-[1px] border-[#E4EAED] hover:border-[#193e5b] px-12 py-2 rounded-full hover:scale-105 duration-300 cursor-pointer justify-center">
             <span className="font-Roboto font-medium text-[20px]">
               Sign up with email
             </span>
@@ -50,6 +52,7 @@ export default function Welcome() {
           </p>
         </div>
       </div>
+      </PageTransition>
     </>
   );
 }

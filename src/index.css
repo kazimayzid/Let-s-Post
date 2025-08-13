@@ -1,6 +1,8 @@
+@import "flowbite/src/themes/default";
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @theme {
   --font-Roboto: "Roboto", sans-serif;
   --font-Inter: "Inter", sans-serif;
+  --color-primaryColor: #183d5a;
 }

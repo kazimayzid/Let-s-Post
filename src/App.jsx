@@ -14,6 +14,7 @@ function App() {
       children: [
         { index: true, element: <Welcome /> },
         { path: "signUp", element: <SignUp /> },
+        { path: "signIn", element: <SignIn /> },
       ],
     },
   ]);
