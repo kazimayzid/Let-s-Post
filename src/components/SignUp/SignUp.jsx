@@ -1,6 +1,6 @@
 import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import SignIn from "../Container/SignIn/SignIn";
+import SignIn from "../SignIn/SignIn";
 import PageTransition from "../pagetransition/PageTransition";
 import { useState } from "react";
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
@@ -65,7 +65,7 @@ export default function SignUp() {
             email: email,
             createdAt: new Date().toLocaleString(),
           });
-          navigate("/signIn")
+          navigate("/signIn");
           setEmailErr("");
           setNameErr("");
           setPasswordErr("");

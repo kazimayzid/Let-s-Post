@@ -1,11 +1,14 @@
 import "./App.css";
-import RootLayOut from "./components/Container/RootLayOut/RootLayOut";
-import SignIn from "./components/Container/SignIn/SignIn";
+
 
 import { createBrowserRouter, RouterProvider } from "react-router";
+import RootLayOut from "./components/RootLayOut/RootLayOut";
 import Welcome from "./components/Welcome/Welcome";
 import SignUp from "./components/SignUp/SignUp";
-import Home from "./pages/SignUp/Home/home";
+import SignIn from "./components/SignIn/SignIn";
+import Feed from "./pages/Feed/Feed";
+import Home from "./pages/Home/home";
+
 
 function App() {
   const router = createBrowserRouter([
@@ -14,14 +17,17 @@ function App() {
       element: <RootLayOut />,
       children: [
         { index: true, element: <Welcome /> },
-        { path: "signUp", element: <SignUp /> },
-        { path: "signIn", element: <SignIn /> },
+        { path: "/signUp", element: <SignUp /> },
+        { path: "/signIn", element: <SignIn /> },
       ],
     },
     {
-      path: "/home",
-      element: <Home/>
-    }
+      path: "/feed",
+      element: <Feed/>,
+      children: [
+        {index: true, element: <Home/>}
+      ],
+    },
   ]);
 
   return <RouterProvider router={router} />;

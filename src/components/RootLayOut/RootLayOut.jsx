@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { SideImg } from "../../../pages/SignUp/SideImg";
+import { SideImg } from "../../pages/SideImg/SideImg";
 import Container from "../Container/Container";
 
 export default function RootLayOut() {

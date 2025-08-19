@@ -1,7 +1,6 @@
-import { Navigate, NavLink, useNavigate } from "react-router";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FcGoogle } from "react-icons/fc";
-import SignUp from "../SignUp/SignUp";
 import PageTransition from "../pagetransition/PageTransition";
 
 export default function Welcome() {
@@ -48,8 +47,9 @@ export default function Welcome() {
             <p className="font-Roboto font-normal text-[16px] mt-[20px]">
               Already have an account?{" "}
               <NavLink
-                to = "/signIn"
-                className="text-[#1E97E1] font-Roboto font-normal text-[16px]">
+                to="/signIn"
+                className="text-[#1E97E1] font-Roboto font-normal text-[16px]"
+              >
                 Log in
               </NavLink>
             </p>

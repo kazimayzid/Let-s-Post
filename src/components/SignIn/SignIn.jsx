@@ -1,16 +1,16 @@
 import { NavLink, useNavigate } from "react-router";
-import logo from "../../../assets/logo.png";
-import PageTransition from "../../pagetransition/PageTransition";
+import logo from "../../assets/logo.png";
+import PageTransition from "../pagetransition/PageTransition";
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { userLogInfo } from "../../../features/UserSlice/UserSlice";
+import { userLogInfo } from "../../features/UserSlice/UserSlice";
 import { ScaleLoader } from "react-spinners";
 export default function SignIn() {
   const auth = getAuth();
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // Email handle section ==========
   const [email, setEmail] = useState("");
   const [emailErr, setEmailErr] = useState("");
@@ -26,19 +26,19 @@ export default function SignIn() {
     setPasswordErr("");
   };
   // Sign is Handle section =============
-  const[loder, setLoder] = useState(false)
+  const [loder, setLoder] = useState(false);
   const signInHandle = () => {
-    setLoder(true)
+    setLoder(true);
     if (!email) {
       setEmailErr("Enter your Email");
-      setLoder(false)
+      setLoder(false);
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setEmailErr("It's not look like an Email");
-      setLoder(false)
+      setLoder(false);
     }
     if (!password) {
       setPasswordErr("Enter your Password");
-      setLoder(false)
+      setLoder(false);
     }
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && password) {
       signInWithEmailAndPassword(auth, email, password)
@@ -46,10 +46,10 @@ export default function SignIn() {
           const user = userCredential.user;
           dispatch(userLogInfo(user));
           localStorage.setItem("userInfo", JSON.stringify(user));
-          toast.success("Welcome to Let's Post")
-          setLoder(false)    
+          toast.success("Welcome to Let's Post");
+          setLoder(false);
           setTimeout(() => {
-            navigate("/home")    
+            navigate("/feed");
           }, 2000);
           setEmailErr("");
           setPasswordErr("");
@@ -68,7 +68,7 @@ export default function SignIn() {
               toast.error("Invalid email format");
               break;
           }
-          setLoder(false)
+          setLoder(false);
         });
     }
   };
@@ -129,9 +129,7 @@ export default function SignIn() {
               type="button"
               class="text-white bg-[#183758] hover:bg-[#183758e8] focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-15 py-2.5 text-center me-2 mb-2 duration-300 cursor-pointer"
             >
-              {
-                loder ? <ScaleLoader height={13} color="#ffffff" /> : "Sign In"
-              }
+              {loder ? <ScaleLoader height={13} color="#ffffff" /> : "Sign In"}
             </button>
             <div className="flex gap-x-[100px] mt-5">
               <NavLink className="text-[#1E97E1] hover:scale-105 duration-300">
