@@ -5,7 +5,11 @@ import PageTransition from "../pagetransition/PageTransition";
 import { useState } from "react";
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 import { getDatabase, ref, set } from "firebase/database";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
 export default function SignUp() {
   const auth = getAuth();
@@ -58,8 +62,9 @@ export default function SignUp() {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-
+          updateProfile(auth.currentUser, {
+            displayName: name,
+          });
           set(ref(db, "users/" + user.uid), {
             username: name,
             email: email,

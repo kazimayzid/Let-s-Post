@@ -7,13 +7,19 @@ export default function Feed() {
   return (
     <>
       <PageTransition>
-        <Container>
-          <div className="flex justify-between w-[100%] px-[200px] bg-blue-50">
-            <div className="w-[15%] bg-blue-50  border-r-[1px] border-[#00000023]"><SideBar/></div>
-            <div className="w-[70%] px-4 border-r-[1px] border-[#00000023]"><Outlet/></div>
-            <div className="w-[15%] px-4">Others</div>
-          </div>
-        </Container>
+        <div className="bg-blue-50">
+          <Container>
+            <div className="flex justify-between w-[100%] px-[300px] bg-blue-50 h-screen">
+              <div className="w-[20%] bg-blue-50  border-r-[1px] border-[#00000023]">
+                <SideBar />
+              </div>
+              <div className="w-[60%] px-4 border-r-[1px] border-[#00000023]">
+                <Outlet />
+              </div>
+              <div className="w-[20%] px-4">Others</div>
+            </div>
+          </Container>
+        </div>
       </PageTransition>
     </>
   );
