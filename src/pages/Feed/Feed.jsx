@@ -13,7 +13,7 @@ export default function Feed() {
               <div className="w-[20%] bg-blue-50  border-r-[1px] border-[#00000023]">
                 <SideBar />
               </div>
-              <div className="w-[60%] px-4 border-r-[1px] border-[#00000023]">
+              <div className="w-[60%] px-4 border-r-[1px] border-[#00000023] ">
                 <Outlet />
               </div>
               <div className="w-[20%] px-4">Others</div>

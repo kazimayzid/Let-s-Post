@@ -5,9 +5,10 @@ import { BsCalendar4Event } from "react-icons/bs";
 import { TfiWrite } from "react-icons/tfi";
 import { useState } from "react";
 import { div } from "motion/react-client";
-import { useTime } from "motion/react";
+import { time, useTime } from "motion/react";
 import { getDatabase, push, ref, set } from "firebase/database";
 import PostCard from "../../components/PostCard/PostCard";
+import moment from "moment/moment";
 
 export default function Home() {
   const user = useSelector((state) => state.user.value);
@@ -29,8 +30,9 @@ export default function Home() {
   const postHandle = () => {
     set(push(ref(db, "post/")), {
       posterid: user.uid,
-      name: user.displayName,
-      text: post,
+      posterName: user.displayName,
+      posterText: post,
+      time: moment().format(),
     });
 
     setShow(false);
