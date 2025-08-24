@@ -13,7 +13,7 @@ export default function Feed() {
             <div className="w-64 fixed h-full  bg-blue-50  border-r-[1px] border-[#00000023]">
               <SideBar />
             </div>
-            <div className=" flex-1 ml-64 flex overflow-y-auto justify-start">
+            <div className=" flex-1 ml-64 flex  justify-start">
               <div className="w-[600px] px-4 border-r-[1px] border-[#00000023] ">
                 <Outlet />
               </div>

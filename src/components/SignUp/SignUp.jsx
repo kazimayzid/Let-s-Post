@@ -66,7 +66,7 @@ export default function SignUp() {
             displayName: name,
           });
           set(ref(db, "users/" + user.uid), {
-            username: name,
+            userName: name,
             email: email,
             createdAt: new Date().toLocaleString(),
           });
