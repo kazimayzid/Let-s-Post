@@ -27,7 +27,7 @@ export default function PostCard() {
 
   return (
     <>
-      <PageTransition>
+     
         {postData.map((data, i) => (
           <div
             key={i}
@@ -48,9 +48,15 @@ export default function PostCard() {
             <div className="mt-1 ml-16 font-Inter text-lg">
               {data.posterText}
             </div>
+            <div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
           </div>
         ))}
-      </PageTransition>
+      
     </>
   );
 }

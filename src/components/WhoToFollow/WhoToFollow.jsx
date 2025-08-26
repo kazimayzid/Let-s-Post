@@ -3,7 +3,9 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import { div } from "motion/react-client";
 import PageTransition from "../pagetransition/PageTransition";
 import { NavLink } from "react-router";
+import { useSelector } from "react-redux";
 export default function WhoToFollow() {
+  const user = useSelector((state) => state.user.value);
   const db = getDatabase();
 
   //   Data fatching ==============
@@ -13,12 +15,16 @@ export default function WhoToFollow() {
     onValue(userRef, (snapshot) => {
       let arr = [];
       snapshot.forEach((items) => {
-        arr.push({ ...items.val(), key: items.key });
+        if (user.uid !== items.key) {
+          arr.push({ ...items.val(), key: items.key });
+        }
       });
       setUserData(arr);
     });
   }, [db]);
   console.log(userData, "data");
+  console.log(user, "user");
+  
 
   return (
     <PageTransition>
